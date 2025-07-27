@@ -1,9 +1,57 @@
+# 👋 ¡Hola, equipo de CODIFICO!
+
+Mi nombre es **Miguel Eduardo Clavijo Piernagorda**, Ingeniero de Software con experiencia en desarrollo de aplicaciones escalables y centradas en la calidad. Este proyecto técnico fue una excelente oportunidad para demostrar mis capacidades tanto en frontend como backend, con enfoque en buenas prácticas, estructura sólida y experiencia de usuario.
+
+---
+
+## 🙋‍♂️ ¿Quién soy?
+
+- Ingeniero con +4 años de experiencia en desarrollo web.
+- Enfocado en Angular, .NET y arquitecturas limpias.
+- Apasionado por escribir código mantenible, modular y optimizado.
+- He desarrollado frontend en empresas como **Interrapidísimo**, y colaborado en proyectos para clientes como **MetLife** y entidades bancarias en LATAM.
+
+---
+
+## 💼 ¿Por qué encajo en CODIFICO?
+
+- Me identifico con su enfoque en **calidad de producto, simplicidad bien pensada** y visión de **valor real para el usuario**.
+- Tengo experiencia aplicando principios **SOLID**, patrones como **Unit of Work**, modularización en Angular, y consumo eficiente de APIs.
+- Valoro el trabajo en equipo, la mejora continua y los estándares de ingeniería de software que Codifico promueve.
+
+---
+
+## 🚀 Sobre este proyecto técnico
+
+**Sales Date Prediction App** es una aplicación SPA desarrollada con Angular 17 y ASP.NET Core, que permite:
+
+- Visualizar y gestionar órdenes, clientes, empleados, productos y transportistas.
+- Usar lógica predictiva (via procedimientos almacenados) para anticipar fechas de nuevos pedidos.
+- Mostrar gráficos interactivos con **D3.js** y brindar una experiencia fluida gracias a componentes modulares, paginación y modales.
+
+Este proyecto refleja mi compromiso con:
+
+- **Modularidad y escalabilidad** (Lazy Loading, servicios desacoplados).
+- **UX y rendimiento** (Bootstrap, NgSelect, OnPush, HttpInterceptors).
+- **Código mantenible y probado** (tests unitarios en servicios y repositorios).
+
+---
+
+✨ ¡Gracias por su tiempo y por permitirme participar en el proceso!
+
+Estoy entusiasmado con la posibilidad de formar parte de Codifico, contribuir con mis habilidades y seguir creciendo junto a un equipo apasionado por el software de calidad.
+
+**Miguel Clavijo**
+
+📧 Mydigitalmike@outlook.com  
+📱 +57 304 332 9218  
+🇨🇴 Bogotá, Colombia
+
 # Descripción del Proyecto
 
  - Nombre del proyecto: **Sales Date Prediction APP**
  - Resumen:
 	 - Este proyecto es una SPA (Single Page Application) construida con Angular para el frontend y ASP.NET Core para el backend.
-	 - Permite gestionar clientes, empleados, productos, transportistas y órdenes.
 	 - Implementa un sistema de predicción de fechas de pedidos basado en datos históricos.
 	 - Se incluye un gráfico de barras interactivo para la visualización de datos usando D3.js.
 
@@ -127,6 +175,5 @@
 -   **CORS:** Asegúrate de configurar correctamente los orígenes permitidos en el backend para evitar errores al consumir el API desde Angular.
 -   **Gráfico D3.js:**
     -   Implementa validación de entrada en el input para evitar errores al crear el gráfico.
-    -   Asegúrate de incluir etiquetas en las barras con los valores.
 
 
