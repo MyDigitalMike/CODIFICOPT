@@ -1,0 +1,8 @@
+<div class="container my-4 mb-4">
+  <div class="p-3 mb-2 bg-danger text-white">Customer AHPOP - Orders</div>
+  <app-dynamic-table-component [columns]="columns" [data]="orders" [searchEnabled]="false"
+    [hasButtons]="false"></app-dynamic-table-component>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-secondary col-lg-2" (click)="activeModal.dismiss()">Close</button>
+  </div>
+</div>

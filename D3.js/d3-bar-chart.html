@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Bar Chart - Single Color</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+        }
+
+        .bar {
+            stroke: #000;
+            stroke-width: 1px;
+        }
+
+        .axis text {
+            font-size: 12px;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            shape-rendering: crispEdges;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Horizontal Bar Chart - Single Color</h1>
+    <label for="sourceData">Source Data:</label>
+    <input type="text" id="sourceData" placeholder="Enter numbers separated by commas (e.g., 10, 20, 30)">
+    <button id="updateData">Update Data</button>
+
+    <div class="chart-container">
+        <svg id="chart" width="600" height="300"></svg>
+    </div>
+
+    <script>
+
+        const sourceDataInput = document.getElementById('sourceData');
+        const updateButton = document.getElementById('updateData');
+        const svg = d3.select('#chart');
+        const width = +svg.attr('width');
+        const height = +svg.attr('height');
+        const margin = { top: 10, right: 10, bottom: 25, left: 40 };
+        const chartWidth = width - margin.left - margin.right;
+        const chartHeight = height - margin.top - margin.bottom;
+        const barColor = '#007BFF';
+
+        const chart = svg.append('g')
+            .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+        function processData(input) {
+            const numbers = input.split(',').map((num) => parseInt(num.trim(), 10));
+            if (numbers.some(isNaN)) {
+                alert('Please enter a valid list of numbers separated by commas.');
+                return null;
+            }
+            return numbers;
+        }
+
+        function renderChart(data) {
+            const barHeight = chartHeight / data.length;
+            const xScale = d3.scaleLinear()
+                .domain([0, d3.max(data)])
+                .range([0, chartWidth]);
+
+            const yScale = d3.scaleBand()
+                .domain(data.map((_, i) => i))
+                .range([0, chartHeight])
+                .padding(0.1);
+
+            chart.selectAll('*').remove();
+
+            chart.selectAll('.bar')
+                .data(data)
+                .enter()
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('y', (_, i) => yScale(i))
+                .attr('x', 0)
+                .attr('height', yScale.bandwidth())
+                .attr('width', (d) => xScale(d))
+                .attr('fill', barColor);
+            chart.selectAll('.bar-label')
+                .data(data)
+                .enter()
+                .append('text')
+                .attr('class', 'bar-label')
+                .attr('y', (_, i) => yScale(i) + yScale.bandwidth() / 2)
+                .attr('x', (d) => xScale(d) / 1.1) 
+                .text((d) => d); 
+            // Renderiza los ejes
+            const xAxis = d3.axisBottom(xScale);
+            const yAxis = d3.axisLeft(yScale).tickFormat((d) => `Item ${d + 1}`); 
+
+            chart.append('g')
+                .attr('transform', `translate(0, ${chartHeight})`)
+                .call(xAxis);
+
+            chart.append('g')
+                .call(yAxis);
+        }
+        updateButton.addEventListener('click', () => {
+            const inputData = sourceDataInput.value;
+            const processedData = processData(inputData);
+            if (processedData) {
+                renderChart(processedData);
+            }
+        });
+    </script>
+</body>
+
+</html>
